@@ -41,7 +41,7 @@ sub accept_hook {
 
 =cut
 
-sub post_setup_hook{
+sub post_setup_hook {
 
     $ENV{SERVER_URL} ||=
 	("http://".$ENV{SERVER_NAME}.":".$ENV{SERVER_PORT}."/");
@@ -50,8 +50,10 @@ sub post_setup_hook{
 
 =head2 setup
 
-This method sets up environment variables based on various
+This method sets up CGI environment variables based on various
 meta-headers, like the protocol, remote host name, request path, etc.
+
+See the docs in L<HTTP::Server::Simple> for more detail.
 
 =cut
 
@@ -71,10 +73,14 @@ sub setup {
     no warnings 'uninitialized';
     my $self = shift;
 
+    # XXX TODO: rather than clone functionality from the base class,
+    # we should call super
+    #
     while ( my ($item, $value) = splice @_, 0, 2 ) {
 	if ( $self->can($item) ) {
 	    $self->$item($value);
-	} elsif ( my $k = $env_mapping{$item} ) {
+	} 
+        if ( my $k = $env_mapping{$item} ) {
 	    $ENV{$k} = $value;
 	}
     }
@@ -153,11 +159,11 @@ __DATA__
   <body>
     <h1>Congratulations!</h1>
 
-    <p>You now have a functional HTTP::Server::Simple running.
+    <p>You now have a functional HTTP::Server::Simple::CGI running.
       </p>
 
     <p><i>(If you're seeing this page, it means you haven't subclassed
-      HTTP::Server::Simple, which you'll need to do to make it
+      HTTP::Server::Simple::CGI, which you'll need to do to make it
       useful.)</i>
       </p>
   </body>
