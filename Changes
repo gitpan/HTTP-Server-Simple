@@ -1,3 +1,10 @@
+0.04 Tue Mar 22 23:34:36 CST 2005
+- Changed ->headers calling conventions. This may break backwards compat,
+  but is cleaner and safer.
+- Fixed bugs in ::CGI that broke http header handling
+- Refactored code to be more transparent
+- Patch from Sebastian Riedel to do proper parsing of form data from STDIN
+
 0.03_03 Fri Mar 18 15:09:52 EST 2005
 - Finish fixes from http://rt.cpan.org/NoAuth/Bug.html?id=11409
 
