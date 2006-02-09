@@ -1,3 +1,8 @@
+0.18
+
+  new method: valid_http_method() from Chris Dent to make it easier to 
+  create servers handling non-standard HTTP verbs.
+
 0.17
   Workaround for Class::Spiffy classloading order issue
   Better handling for completely mangled requests.
