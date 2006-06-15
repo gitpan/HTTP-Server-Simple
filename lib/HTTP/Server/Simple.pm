@@ -5,7 +5,7 @@ use warnings;
 use Socket;
 use Carp;
 
-our $VERSION = '0.18';
+our $VERSION = '0.20';
 
 =head1 NAME
 
@@ -161,9 +161,9 @@ sub background {
     my $child = fork;
     die "Can't fork: $!" unless defined($child);
     return $child if $child;
-    use POSIX;
 
     if ( $^O !~ /MSWin32/ ) {
+        require POSIX;
         POSIX::setsid()
             or die "Can't start a new session: $!";
     }
@@ -223,6 +223,7 @@ sub run {
     }
     else {
         $self->setup_listener;
+	$self->after_setup_listener();
         *{"$pkg\::run"} = $self->_default_run;
     }
 
@@ -421,7 +422,7 @@ of keys of this list.
 =cut
 
 sub setup {
-    my ($self) = @_;
+    my $self = shift;
     while ( my ( $item, $value ) = splice @_, 0, 2 ) {
         $self->$item($value) if $self->can($item);
     }
@@ -584,6 +585,16 @@ sub setup_listener {
         or die "bind: $!";
     listen( HTTPDaemon, SOMAXCONN ) or die "listen: $!";
 
+}
+
+
+=head2 after_setup_listener
+
+This method is called immediately after setup_listener. It's here just for you to override.
+
+=cut
+
+sub after_setup_listener {
 }
 
 =head2 bad_request
