@@ -1,15 +1,17 @@
 package HTTP::Server::Simple;
-use 5.006;
 use strict;
 use warnings;
+use FileHandle;
 use Socket;
 use Carp;
 
-our $VERSION = '0.20';
+use vars qw($VERSION $bad_request_doc);
+$VERSION = '0.21';
+
 
 =head1 NAME
 
-HTTP::Server::Simple
+HTTP::Server::Simple - Lightweight HTTP server
 
 
 =head1 SYNOPSIS
@@ -253,7 +255,7 @@ sub _default_run {
             local $SIG{PIPE} = 'IGNORE';    # If we don't ignore SIGPIPE, a
                  # client closing the connection before we
                  # finish sending will cause the server to exit
-            while ( accept( my $remote, HTTPDaemon ) ) {
+            while ( accept( my $remote = new FileHandle, HTTPDaemon ) ) {
                 $self->stdio_handle($remote);
                 $self->lookup_localhost() unless ($self->host);
                 $self->accept_hook if $self->can("accept_hook");
@@ -604,7 +606,7 @@ request was invalid.
 
 =cut
 
-our $bad_request_doc = join "", <DATA>;
+$bad_request_doc = join "", <DATA>;
 
 sub bad_request {
     my $self = shift;
