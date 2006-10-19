@@ -4,9 +4,10 @@ use warnings;
 use FileHandle;
 use Socket;
 use Carp;
+use URI::Escape;
 
 use vars qw($VERSION $bad_request_doc);
-$VERSION = '0.21';
+$VERSION = '0.22';
 
 
 =head1 NAME
@@ -306,7 +307,7 @@ sub _process_request {
         $self->setup(
             method       => $method,
             protocol     => $proto,
-            query_string => ( $query_string || '' ),
+            query_string => ( defined($query_string) ? $query_string : '' ),
             request_uri  => $request_uri,
             path         => $file,
             localname    => $self->host,
@@ -525,7 +526,7 @@ sub parse_request {
     my $uri      = $2 || '';
     my $protocol = $3 || '';
 
-    return ( $method, $uri, $protocol );
+    return ( $method, uri_unescape( $uri ), $protocol );
 }
 
 =head2 parse_headers
@@ -625,7 +626,7 @@ Override if, for example, you'd like to do some WebDAV.
 
 sub valid_http_method {
     my $self   = shift;
-    my $method = shift;
+    my $method = shift or return 0;
     return $method =~ /^(?:GET|POST|HEAD|PUT|DELETE)$/;
 }
 
