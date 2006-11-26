@@ -1,3 +1,6 @@
+0.26 Sat Nov 25 19:10:25 EST 2006
+ * 0.24 had a bogus signature. No code changes, just release-engineering changes.
+
 0.24
 
   * Hopefully deal with an odd case where a poorly behaved Internet Explorer could crash the server.

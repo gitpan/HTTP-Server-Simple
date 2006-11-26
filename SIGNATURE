@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.54.
+signed via the Module::Signature module, version 0.55.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,9 +14,9 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 3a345c84d4a5a678e457a1b3681ab75f4a1bb78d Changes
+SHA1 0ee9208618c1ad78e29d9a8ab6050ee8de285c08 Changes
 SHA1 0ac508c50476dcc2bf8fe3094cb341425291e1ee MANIFEST
-SHA1 35ad715e6f91b8692d8c183daca803bd61301b4e META.yml
+SHA1 27c29893dde9b605f145bce6e9fe516d07910f43 META.yml
 SHA1 490f3fd115e09cb05b725580e5ed5cdd58241049 Makefile.PL
 SHA1 ed0c107672daac3bc9e266876666e1059dbe44b7 README
 SHA1 4ea1e9072ca87399184a46233df52a21e285604d ex/sample_server
@@ -28,9 +28,9 @@ SHA1 2249171a2b72cd73ff2c0a06597d29f86e5df456 inc/Module/Install/Makefile.pm
 SHA1 381bb98ea3877bba49ae85e7a7ea130645fd3dbf inc/Module/Install/Metadata.pm
 SHA1 0c2118868ef82ac517eb6d9c3bd93e6eb9bbf83e inc/Module/Install/Win32.pm
 SHA1 e827d6d43771032fa3df35c0ad5e5698d0e54cda inc/Module/Install/WriteAll.pm
-SHA1 eb4801495bff8da5254b1b8e6b4a1516946f64fe lib/HTTP/Server/Simple.pm
+SHA1 218d8bcd76236baddc3b136fe367b227f8f030f8 lib/HTTP/Server/Simple.pm
 SHA1 40f24374f2b5845a3025e14ca4b91bd58298de03 lib/HTTP/Server/Simple/CGI.pm
-SHA1 d35644a882953f699442654299cac16fa158b502 lib/HTTP/Server/Simple/CGI/Environment.pm
+SHA1 47ef836a1cdd03add505dd4c90819cafb61dc565 lib/HTTP/Server/Simple/CGI/Environment.pm
 SHA1 db064af54cab345a71daec576e32e64b8fb1033d t/00smoke.t
 SHA1 b64150ac4ebc772f8b1f69455039e7ea3e067b3f t/01live.t
 SHA1 aca95653cfce68912e08c57b3a4566207e2f99b3 t/02pod.t
@@ -39,7 +39,7 @@ SHA1 bbf511880e77fef4a252ed84438075cbb77924e4 t/04cgi.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.3 (Darwin)
 
-iD8DBQFFPGBpEi9d9xCOQEYRAtKUAJwJP6tf3XxTUnxc9VcUuxLFUx47WQCgr1mn
-sGZoEFrw2goxmQImU8MSuR4=
-=kehj
+iD8DBQFFaNy8Ei9d9xCOQEYRAt4PAJwMCNL7D2vqCToK/s9TZKV0HnpsHgCghhvA
+JZAb2fcxY07Fh7EVkpLYUEI=
+=8sNZ
 -----END PGP SIGNATURE-----
