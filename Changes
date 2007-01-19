@@ -1,6 +1,11 @@
-0.26 Sat Nov 25 19:10:25 EST 2006
- * 0.24 had a bogus signature. No code changes, just release-engineering changes.
+0.27
 
+ * 0.26 release apparently didn't get to cpan correctly
+
+0.26
+ 
+  * Supports multi-line encoded values in query_sting (like foo%0Abar) -- Dobrica Pavlinusic 
+  * Fixes to URI unescaping to behave like apache does
 0.24
 
   * Hopefully deal with an odd case where a poorly behaved Internet Explorer could crash the server.

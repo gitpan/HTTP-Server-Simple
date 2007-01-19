@@ -7,7 +7,7 @@ use Carp;
 use URI::Escape;
 
 use vars qw($VERSION $bad_request_doc);
-$VERSION = '0.26';
+$VERSION = '0.27';
 
 
 =head1 NAME
@@ -305,7 +305,7 @@ sub _process_request {
         $proto ||= "HTTP/0.9";
 
         my ( $file, $query_string )
-            = ( $request_uri =~ /([^?]*)(?:\?(.*))?/ );    # split at ?
+            = ( $request_uri =~ /([^?]*)(?:\?(.*))?/s );    # split at ?
 
         $self->setup(
             method       => $method,
@@ -529,7 +529,7 @@ sub parse_request {
     my $uri      = $2 || '';
     my $protocol = $3 || '';
 
-    return ( $method, uri_unescape( $uri ), $protocol );
+    return ( $method, $uri, $protocol );
 }
 
 =head2 parse_headers
