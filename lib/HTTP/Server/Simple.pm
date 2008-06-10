@@ -8,7 +8,7 @@ use Carp;
 use URI::Escape;
 
 use vars qw($VERSION $bad_request_doc);
-$VERSION = '0.33';
+$VERSION = '0.34';
 
 
 =head1 NAME
@@ -256,7 +256,14 @@ sub run {
     if ($server) {
         require join( '/', split /::/, $server ) . '.pm';
         *{"$pkg\::ISA"} = [$server];
-        $self->print_banner;
+
+        # clear the environment before every request
+        require HTTP::Server::Simple::CGI;
+        *{"$pkg\::post_accept"} = sub {
+            HTTP::Server::Simple::CGI::Environment->setup_environment;
+            # $self->SUPER::post_accept uses the wrong super package
+            $server->can('post_accept')->(@_);
+        };
     }
     else {
         $self->setup_listener;
@@ -636,7 +643,7 @@ sub parse_headers {
     while ( sysread( STDIN, my $buff, 1 ) ) {
         if ( $buff eq "\n" ) {
             $chunk =~ s/[\r\l\n\s]+$//;
-            if ( $chunk =~ /^([\w\-]+): (.+)/i ) {
+            if ( $chunk =~ /^([^()<>\@,;:\\"\/\[\]?={} \t]+):\s*(.*)/i ) {
                 push @headers, $1 => $2;
             }
             last if ( $chunk =~ /^$/ );
