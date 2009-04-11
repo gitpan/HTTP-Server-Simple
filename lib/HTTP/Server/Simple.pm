@@ -8,7 +8,7 @@ use Carp;
 use URI::Escape;
 
 use vars qw($VERSION $bad_request_doc);
-$VERSION = '0.38_02';
+$VERSION = '0.38_03';
 
 =head1 NAME
 
@@ -204,6 +204,22 @@ started process.  Any arguments will be passed through to L</run>.
 
 =cut
 
+my $HAS_TIME_HIRES;
+my $HAS_OK_SELECT;
+BEGIN { $HAS_TIME_HIRES = eval { require Time::HiRes; 1 } }
+BEGIN { $HAS_OK_SELECT  = $^O ne "MSWin32" }
+
+sub _background_sleep {
+    if ($HAS_TIME_HIRES) {
+        Time::HiRes::usleep(100_000);
+    } elsif ($HAS_OK_SELECT) {
+        select(undef, undef, undef, 0.1);
+    } else {
+        sleep 1;
+    }
+}
+      
+
 sub background {
     my $self  = shift;
     require File::Temp;
@@ -213,7 +229,7 @@ sub background {
     croak "Can't fork: $!" unless defined($child);
     if ($child) {
         while (eof($fh)) {
-            select(undef, undef, undef, 0.1);
+            _background_sleep();
             seek($fh, 0, 0);
         }
         return $child;
