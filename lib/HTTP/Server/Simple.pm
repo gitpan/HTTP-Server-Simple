@@ -8,7 +8,7 @@ use Carp;
 use URI::Escape;
 
 use vars qw($VERSION $bad_request_doc);
-$VERSION = '0.38_03';
+$VERSION = '0.38_04';
 
 =head1 NAME
 
@@ -204,44 +204,19 @@ started process.  Any arguments will be passed through to L</run>.
 
 =cut
 
-my $HAS_TIME_HIRES;
-my $HAS_OK_SELECT;
-BEGIN { $HAS_TIME_HIRES = eval { require Time::HiRes; 1 } }
-BEGIN { $HAS_OK_SELECT  = $^O ne "MSWin32" }
-
-sub _background_sleep {
-    if ($HAS_TIME_HIRES) {
-        Time::HiRes::usleep(100_000);
-    } elsif ($HAS_OK_SELECT) {
-        select(undef, undef, undef, 0.1);
-    } else {
-        sleep 1;
-    }
-}
-      
-
 sub background {
     my $self  = shift;
-    require File::Temp;
-    my ($fh, $filename) = File::Temp::tempfile();
-    unlink($filename);
     my $child = fork;
     croak "Can't fork: $!" unless defined($child);
-    if ($child) {
-        while (eof($fh)) {
-            _background_sleep();
-            seek($fh, 0, 0);
-        }
-        return $child;
-    }
+    return $child if $child;
 
     if ( $^O !~ /MSWin32/ ) {
         require POSIX;
         POSIX::setsid()
             or croak "Can't start a new session: $!";
     }
-    $self->{after_setup} = sub { print {$fh} 1; close $fh };
-    $self->run(@_);
+    $self->run(@_); # should never return
+    exit;           # just to be sure
 }
 
 =head2 run [ARGUMENTS]
@@ -686,7 +661,6 @@ sub setup_listener {
         )
         or croak "bind to @{[$self->host||'*']}:@{[$self->port]}: $!";
     listen( HTTPDaemon, SOMAXCONN ) or croak "listen: $!";
-    $self->{after_setup} && $self->{after_setup}->();
 }
 
 
