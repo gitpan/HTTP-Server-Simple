@@ -19,7 +19,6 @@ requires:
   CGI: 0
   Socket: 0
   Test::More: 0
-  URI::Escape: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.41_01
+version: 0.42
