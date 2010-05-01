@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.61.
+signed via the Module::Signature module, version 0.63.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,10 +14,10 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 8d9beed4204c923e2522319f3aa53b90f0eddc77 Changes
+SHA1 0588f7923f93acfbdf2992fb224a3eb108ba9835 Changes
 SHA1 949066363c947341783f1fe4c949f02940e8fa73 MANIFEST
 SHA1 e476d8bd724d46eb9e255cc8afc98b92269e2255 MANIFEST.SKIP
-SHA1 61e569f4f1e2cc0f3c5caea829fba64559ca22fc META.yml
+SHA1 be16e275943c3dfb0bfa080c412957ba72b1d1e7 META.yml
 SHA1 bedda9fb5cb7922f391c7f039bc7eb8297e2c999 Makefile.PL
 SHA1 ed0c107672daac3bc9e266876666e1059dbe44b7 README
 SHA1 4ea1e9072ca87399184a46233df52a21e285604d ex/sample_server
@@ -29,9 +29,9 @@ SHA1 0384525d85d51e99532e3ad8729d870113646d14 inc/Module/Install/Makefile.pm
 SHA1 38c657de4d91f5a60ff8e6c6f6a5547daf7c4ab2 inc/Module/Install/Metadata.pm
 SHA1 5c25f1104c0038041e3b93e0660c39171e4caf2b inc/Module/Install/Win32.pm
 SHA1 94d47349c803c4bd2a9230d25e4db0b6aaf1acd8 inc/Module/Install/WriteAll.pm
-SHA1 6bd7c67c0be2617eb91155aede4b7e13e7db9b8c lib/HTTP/Server/Simple.pm
+SHA1 dd978f6fe677d00285e2ee5a8d14a46c61694d89 lib/HTTP/Server/Simple.pm
 SHA1 c84b60c7ebdcc12d1814909f957bf3b385fa60c2 lib/HTTP/Server/Simple/CGI.pm
-SHA1 1fcf911a2e8aa609bbdf519b389015b3d616b933 lib/HTTP/Server/Simple/CGI/Environment.pm
+SHA1 d052d3acc92e7f35ece4d195ce8b09d8105f063e lib/HTTP/Server/Simple/CGI/Environment.pm
 SHA1 41afe2c04bb573b40e283e2b210ed70a47a3f8ba t/00signature.t
 SHA1 db064af54cab345a71daec576e32e64b8fb1033d t/00smoke.t
 SHA1 7afffea07d161f377bedff4669ab92e121d28e81 t/01live.t
@@ -39,9 +39,9 @@ SHA1 aca95653cfce68912e08c57b3a4566207e2f99b3 t/02pod.t
 SHA1 a7024d0d8e7b80d26f75a3551a1406a797b382f8 t/03podcoverage.t
 SHA1 8edf693744545698371dc75d55d4ec27f59848f0 t/04cgi.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.9 (GNU/Linux)
+Version: GnuPG v1.4.10 (GNU/Linux)
 
-iEUEARECAAYFAku2IpQACgkQEi9d9xCOQEYfTgCY648HhRl93c1UmBXHlt8srr4g
-UQCeJ1MUVoC8JueCiOPcFMIZaOOJV6I=
-=nhHA
+iEYEARECAAYFAkvcPOEACgkQEi9d9xCOQEZ4wwCfd7KB/QY6y9/y6G7y39KPyOEQ
+Mz4AoJfoVJAzxonx4nzJvRQsOnEfsULE
+=yR+R
 -----END PGP SIGNATURE-----
