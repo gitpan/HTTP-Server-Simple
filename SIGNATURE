@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.66.
+signed via the Module::Signature module, version 0.68.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,22 +14,22 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 f0ed9096f048f9291c7cccb64caeea6ae50ea031 Changes
+SHA1 91b8cd8d454c2478ffcc6d23f7704f8d19540cf3 Changes
 SHA1 949066363c947341783f1fe4c949f02940e8fa73 MANIFEST
 SHA1 e476d8bd724d46eb9e255cc8afc98b92269e2255 MANIFEST.SKIP
-SHA1 8b7f1c4cb0cf0a362479450cd1598f4a3be7237d META.yml
+SHA1 0abfbe890344920f5645d9836a0c11d6102816c7 META.yml
 SHA1 bedda9fb5cb7922f391c7f039bc7eb8297e2c999 Makefile.PL
 SHA1 ed0c107672daac3bc9e266876666e1059dbe44b7 README
 SHA1 4ea1e9072ca87399184a46233df52a21e285604d ex/sample_server
-SHA1 7305dbe2904416e28decb05396988a5d51d578be inc/Module/Install.pm
-SHA1 129960509127732258570c122042bc48615222e1 inc/Module/Install/Base.pm
-SHA1 cf3356ed9a5bd2f732527ef9e7bc5ef4458c8a93 inc/Module/Install/Can.pm
-SHA1 bf0a3e1977effc2832d7a813a76dce3f31b437b6 inc/Module/Install/Fetch.pm
-SHA1 b721c93ca5bc9a6aa863b49af15f1b1de6125935 inc/Module/Install/Makefile.pm
-SHA1 026cc0551a0ad399d195e395b46bdf842e115192 inc/Module/Install/Metadata.pm
-SHA1 5457015ea5a50e93465bf2dafa29feebd547f85b inc/Module/Install/Win32.pm
-SHA1 051e7fa8063908befa3440508d0584a2497b97db inc/Module/Install/WriteAll.pm
-SHA1 5fc5e574334c74ff4351fd47dcf2e9475aef4049 lib/HTTP/Server/Simple.pm
+SHA1 7b4ae50ebac72d20761171c4c2b50c206344ea40 inc/Module/Install.pm
+SHA1 d9fe55a427fe2fd75b5029afeeaa61b592e07f79 inc/Module/Install/Base.pm
+SHA1 62d3922826d9f89f20c185e7031ac8f028504745 inc/Module/Install/Can.pm
+SHA1 dc809f64fb70a26b069a36f8d3d353d520dbb7e1 inc/Module/Install/Fetch.pm
+SHA1 73ab91490a628452cc140db72ef9d13a1326d211 inc/Module/Install/Makefile.pm
+SHA1 8ce3f2b414e4617e6233dd4ba10830f8c5d672ec inc/Module/Install/Metadata.pm
+SHA1 3b0acd2eeac93a0afe48120f5648f0db362e5bbf inc/Module/Install/Win32.pm
+SHA1 f08924f051e623f8e09fa6a121993c4a9cf7d9eb inc/Module/Install/WriteAll.pm
+SHA1 c2b2e22dbd4fa714fbd612e4758dd958a344f9b5 lib/HTTP/Server/Simple.pm
 SHA1 c84b60c7ebdcc12d1814909f957bf3b385fa60c2 lib/HTTP/Server/Simple/CGI.pm
 SHA1 d052d3acc92e7f35ece4d195ce8b09d8105f063e lib/HTTP/Server/Simple/CGI/Environment.pm
 SHA1 41afe2c04bb573b40e283e2b210ed70a47a3f8ba t/00signature.t
@@ -37,11 +37,15 @@ SHA1 db064af54cab345a71daec576e32e64b8fb1033d t/00smoke.t
 SHA1 7afffea07d161f377bedff4669ab92e121d28e81 t/01live.t
 SHA1 aca95653cfce68912e08c57b3a4566207e2f99b3 t/02pod.t
 SHA1 a7024d0d8e7b80d26f75a3551a1406a797b382f8 t/03podcoverage.t
-SHA1 27975aef6518de7ef5916ea2dfd3747f134db841 t/04cgi.t
+SHA1 b24b8e106e9c0fbf0dc574d9684e005e768daefe t/04cgi.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.10 (GNU/Linux)
+Version: GnuPG v1.4.11 (Darwin)
 
-iEYEARECAAYFAk2ZbQMACgkQEi9d9xCOQEbBwQCgyXuXE0LzWdmw1+YfOY6EhueS
-/7cAmQHI9MZmMMI+dSYf7v7UKsH5IfDw
-=YyKL
+iQEcBAEBAgAGBQJOgIsgAAoJEAWRzu2+WgGMNnMH/iQpdYe30oWHy88MlNXIPnWL
+aKGJ0/6CgXXDAqpq/BAHQztGdJHtJXqeNOw2GsCafRflVx806pi+hqZOTnq7DAN/
+2rsW8SgUMuCu3YavlbjLqaQ2DvFsqcs6K4nMwkp97XYB8B64p9vzhsoPLQF0N8DM
+Ln3H/J2p/suxonxdc9x1hC1SRa7voAo3qtMolAxPS+JrS22bIk+rjjqJ61G7IiRX
+cbQFDt7xojfid9zXV/aYAFAC48vXuBQbsNL4a2gyOdruPh4/vjYZ52Xj/U4ZZbZz
+F+0dR1KEAwSE9ISdFW7KfR95WFGL7zCirJDEkrijhfPaRUBlUGsL8aGW9STnevc=
+=NGL3
 -----END PGP SIGNATURE-----

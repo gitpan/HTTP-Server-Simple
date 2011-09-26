@@ -7,7 +7,7 @@ use Socket;
 use Carp;
 
 use vars qw($VERSION $bad_request_doc);
-$VERSION = '0.44';
+$VERSION = '0.45_01';
 
 =head1 NAME
 
@@ -607,6 +607,9 @@ sub parse_request {
     my $method   = $1 || '';
     my $uri      = $2 || '';
     my $protocol = $3 || '';
+
+    # strip <scheme>://<host:port> out of HTTP/1.1 requests
+    $uri =~ s{^\w+://[^/]+/}{/};
 
     return ( $method, $uri, $protocol );
 }
