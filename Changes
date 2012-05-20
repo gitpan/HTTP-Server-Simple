@@ -1,8 +1,5 @@
-0.45_02 Wed Nov 30 16:40:12 EST 2011
-
-* Recognise PATCH as a valid HTTP verb
-
-* Some basic response checking tests
+0.45_02
+* Support for IPv6 - Daniel Kahn Gillmor [rt.cpan.org #61200]
 
 0.45_01 Thu Sep 22 10:10:41 EST 2011
 
